@@ -15,15 +15,15 @@ public class UserInterface {
 	
 	
 	public void moveCoverageRequest () throws IllegalArgumentException { 
-		Type move1, move2; 
+		Type move1, move2, move3, move4; 
 		System.out.println("Insert type of move 1:");
 		move1 = Enum.valueOf(Type.class, scanner.next());
 		System.out.println("Insert type of move 2:");
-		Type move2 = Enum.valueOf(Type.class, scanner.next());
+	 move2 = Enum.valueOf(Type.class, scanner.next());
 		System.out.println("Insert type of move 3:");
-		Type move3 = Enum.valueOf(Type.class, scanner.next());
+		move3 = Enum.valueOf(Type.class, scanner.next());
 		System.out.println("Insert type of move 4:");
-		Type move4 = Enum.valueOf(Type.class, scanner.next());
+		move4 = Enum.valueOf(Type.class, scanner.next());
 
 		Collection<Type> coverageList = MoveCoverage.getMoveCoverage(move1, move2, move3, move4);
 		System.out.print("Your MoveSet currently covers the following types: ");
