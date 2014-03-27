@@ -2,6 +2,9 @@ package Coverage;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.Scanner;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import pkmnTypes.Type;
 
 public class UserInterface {
@@ -11,9 +14,10 @@ public class UserInterface {
 	}
 	
 	
-	public void moveCoverageRequest() { 
+	public void moveCoverageRequest () throws IllegalArgumentException { 
+		Type move1, move2; 
 		System.out.println("Insert type of move 1:");
-		Type move1 = Enum.valueOf(Type.class, scanner.next());
+		move1 = Enum.valueOf(Type.class, scanner.next());
 		System.out.println("Insert type of move 2:");
 		Type move2 = Enum.valueOf(Type.class, scanner.next());
 		System.out.println("Insert type of move 3:");
@@ -28,5 +32,8 @@ public class UserInterface {
 		}
 		
 		
+		
 		}
+	
+	
 	}

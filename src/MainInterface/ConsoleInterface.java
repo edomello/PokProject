@@ -45,6 +45,7 @@ public class ConsoleInterface {
 			break;
 		case "3":
 			Coverage.UserInterface coverageUI = new Coverage.UserInterface(System.in);
+			
 			coverageUI.moveCoverageRequest();
 			break;
 		default:
