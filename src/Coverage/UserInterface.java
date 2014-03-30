@@ -2,9 +2,6 @@ package Coverage;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.Scanner;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 import pkmnTypes.Type;
 
 public class UserInterface {
