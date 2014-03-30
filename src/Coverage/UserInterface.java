@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Scanner;
 import pkmnTypes.Type;
 
+
 public class UserInterface {
 	private final Scanner scanner;
 	public UserInterface(InputStream input) {
