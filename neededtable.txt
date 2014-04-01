@@ -1,0 +1,45 @@
+pokemon - name, 
+type - efficacy (type_efficacy)
+moves (move) - names (move_names.name -> local_language_id ==9) power (.power), type (.type_id), damageclass (move_damage_class), generation, tm (machines), methods (pokemon_move_methods)
+egg groups 
+
+
+1) GET MOVE LIST FROM A POKEMON, WITH NAME, TYPE, POWER, DMGCLASS, METHOD.
+
+
+SELECT DISTINCT 
+moves.id,moves.identifier AS movename, 
+machines.machine_number AS TM, 
+pokemon_moves.pokemon_move_method_id AS movemethod, 
+pokemon_moves.level, 
+moves.power, 
+types.identifier AS type, 
+moves.damage_class_id AS dmgtype 
+FROM moves, version_groups, types, 
+pokemon_moves LEFT JOIN machines ON (pokemon_moves.move_id == machines.move_id AND machines.version_group_id==15)
+WHERE pokemon_moves.pokemon_id == "+pokemonId+" 
+and version_groups.id ==15 
+and moves.type_id == types.id 
+and pokemon_moves.move_id == moves.id 
+and pokemon_moves.version_group_id == version_groups.id
+ORDER BY pokemon_moves.pokemon_move_method_id ASC, pokemon_moves.level ASC
+
+
+2) GET POKEMON ID FROM A NAME
+select id
+from pokemon
+where identifier == 'bulbasaur'
+
+3) GET TM FROM MOVE ID
+select machine_number
+from machines
+where version_group_id == 15 and move_id == '1'
+
+4) GET EGG CHAIN FROM POKEMON ID AND MOVE
+(per ora questa dà solo il gruppo uovo e ci mette già molto..)
+select distinct pokemon_species.identifier, pokemon_egg_groups.egg_group_id, pokemon_moves.pokemon_id as otherpkmn
+from pokemon_species, pokemon_egg_groups, pokemon_moves
+where pokemon_species.id == 1 and pokemon_moves.move_id and   pokemon_egg_groups.species_id == pokemon_species.id 
+
+
+
