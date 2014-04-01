@@ -10,6 +10,7 @@ public class Test {
 		String name = scanner.next();
 		Pokemon chosenpokemon = new Pokemon(name);
 		chosenpokemon.populateLearnableSet();
-		//chosenpokemon.printLearnableSet();
+		chosenpokemon.printLearnableSet();
+	//	Pokemon ciccio = new Pokemon("charizard");
 	}
 }

@@ -23,6 +23,7 @@ public class Pokemon {
 	
 	public Pokemon(String pokemonName){
 		this.name = pokemonName;
+		learnableSet = new ArrayList<MoveLearn>();
 		PokedexConnection pokemonFetcher = new PokedexConnection();
 		pokemonFetcher.getPokemonDataFromName(this);
 	}
@@ -51,8 +52,7 @@ public class Pokemon {
 	public void printLearnableSet(){
 		System.out.println(this.name + " can learn the following moves: ");
 		for (MoveLearn currentMove : this.learnableSet) {
-			System.out.println(currentMove.getMove().getName() + ", power: "+ Integer.toString(currentMove.getMove().getPower()) + ", at level: " + Integer.toString(currentMove.getMethod()) +" or TM" + Integer.toString(currentMove.getMove().getTMNumber()));
-			System.out.println("Yay! :)");
+			System.out.println(currentMove.getMove().getName() + ", power: "+ Integer.toString(currentMove.getMove().getPower()) + ", at level: " + Integer.toString(currentMove.getLevel()) +" or TM" + Integer.toString(currentMove.getMove().getTMNumber()));
 		}
 		
 		
