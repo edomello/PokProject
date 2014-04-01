@@ -41,5 +41,10 @@ select distinct pokemon_species.identifier, pokemon_egg_groups.egg_group_id, pok
 from pokemon_species, pokemon_egg_groups, pokemon_moves
 where pokemon_species.id == 1 and pokemon_moves.move_id and   pokemon_egg_groups.species_id == pokemon_species.id 
 
-
+5) GET OTHER POKEMONS OF THE SAME EGG GROUPS NB: IF EGGGROUP IS 15 THE POKEMON CANNOT BREED
+SELECT pokemon_species.id as pokemonId, pokemon_species.identifier as pokemonName, pokemon_egg_groups.egg_group_id as eggGroup
+FROM pokemon_species, pokemon_egg_groups
+WHERE pokemon_egg_groups.species_id == pokemon_species.id and
+ eggGroup IN (SELECT pokemon_egg_groups.egg_group_id AS id2 FROM pokemon_egg_groups WHERE pokemon_egg_groups.species_id == 150) and
+ pokemon_species.evolution_chain_id IS NOT (SELECT pokemon_species.evolution_chain_id FROM pokemon_species WHERE pokemon_species.id == 150)
 
