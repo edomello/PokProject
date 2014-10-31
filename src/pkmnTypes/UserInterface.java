@@ -76,6 +76,11 @@ public class UserInterface {
 		
 		
 	}
-
+	
+	public void offensiveSortRequest(){
+		for (Type currentType : Type.getSortedByOffence()) {
+			System.out.println("\n " + currentType.toString() + " " + currentType.getnOfEffectiveness().get(2) + "supereffectiveness, " + currentType.getnOfEffectiveness().get(1) + "normal " + currentType.getnOfEffectiveness().get(0) + "Low Effectiveness");
+		}
+	}
 
 }

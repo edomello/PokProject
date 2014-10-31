@@ -29,6 +29,7 @@ public class ConsoleInterface {
 		System.out.println("1: Weakness and Resistance check");
 		System.out.println("2: Attack Compatibility check");
 		System.out.println("3: Moveset Coverage");
+		System.out.println("4: TeamBuilder");
 		String menuchoice = scanner.next();
 		pkmnTypes.UserInterface typesUI = new UserInterface(System.in);
 		
@@ -47,6 +48,10 @@ public class ConsoleInterface {
 			Coverage.UserInterface coverageUI = new Coverage.UserInterface(System.in);
 			
 			coverageUI.moveCoverageRequest();
+			break;
+		case "4":
+			pkmnTypes.UserInterface coverageUIbuilder = new pkmnTypes.UserInterface(System.in);
+			coverageUIbuilder.offensiveSortRequest();
 			break;
 		default:
 			System.out.println("Selection not valid.");
